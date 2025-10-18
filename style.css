@@ -1,0 +1,6 @@
+/* style.css */
+.priority-Low { background-color: #154727; }
+.priority-Medium { background-color: #ad8b04; }
+.priority-High { background-color: #850404; }
+.overdue { border: 2px solid #ef4444; }
+
