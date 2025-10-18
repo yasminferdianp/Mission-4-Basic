@@ -90,10 +90,31 @@ document.addEventListener("click", (e) => {
   }
 });
 
-deleteAllBtn.addEventListener("click", () => {
-  if (confirm("Yakin hapus semua tugas?")) tasks = [];
-  renderTasks();
+//batas
+deleteAllBtn.addEventListener('click', () => {
+  Swal.fire({
+    title: 'Kamu yakin ingin menghapus?',
+    text: 'Semua tugas akan dihapus!',
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#ef4444',
+    cancelButtonColor: "#077314ff",
+    confirmButtonText: 'Ya, hapus semua!',
+    cancelButtonText: 'Gak dulu deh:)'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      tasks = [];
+      renderTasks();
+      Swal.fire({
+        icon: 'success',
+        title: 'Berhasil!',
+        text: 'Semua tugas sudah dihapus.',
+        confirmButtonColor: '#3b82f6'
+      });
+    }
+  });
 });
 
+//batas
 setInterval(renderTasks, 60000);
 renderTasks();
